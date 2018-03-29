@@ -1,0 +1,29 @@
+<%= form_with model: @phone, local: true do |form| %>
+ 
+        <% @phone.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+
+ <%= form.fields_for :battarys do |builder| =%>
+
+  <p>
+    <%= builder.label :text %><br>
+    
+    <%= builder.text_area :text %>
+    <%= builder.check_box :_destroy %>
+    <%= builder.label :_destroy,'remove' %>
+
+<% end %>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>

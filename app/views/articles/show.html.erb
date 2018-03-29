@@ -1,0 +1,23 @@
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+  
+</p>
+
+
+<% for comment in @article.comments %>
+<strong>Text:</strong>
+<p><%= comment.text %><p>
+<% end %>
+
+
+<br>
+
+
+ 
+<%= link_to 'Back', articles_path %>

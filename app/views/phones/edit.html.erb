@@ -1,0 +1,35 @@
+<h1>Edit Products</h1>
+ 
+<%= form_with(model: @phone) do |form| %>
+ 
+        <% @phone.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  
+ 
+ <p>
+   <%= form.label :name %><br>
+   <%= form.text_field :name %>
+    </p>
+    <%= form.check_box :_destroy %>
+    <%= form.label :_destroy,'remove' %>
+    </p>
+ 
+ <%= form.fields_for :battarys do |builder| =%>
+
+  <p>
+    <%= builder.label :name %><br> 
+    <%= builder.text_area :text %>
+    <%= builder.check_box :_destroy %>
+    <%= builder.label :_destroy,'remove' %>
+
+<% end %>
+  <p>
+  <%= form.submit %>
+  </p>
+ 
+<% end %>
+ 
+<%= link_to 'Back', phones_path %>

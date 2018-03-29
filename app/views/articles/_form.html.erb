@@ -1,0 +1,33 @@
+<%= form_with model: @article, local: true do |form| %>
+ 
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+
+ <%= form.fields_for :comments do |builder| =%>
+
+  <p>
+    <%= builder.label :text %><br>
+    
+    <%= builder.text_area :text %>
+    <%= builder.check_box :_destroy %>
+    <%= builder.label :_destroy,'remove' %>
+
+<% end %>
+
+  <p>
+    <%= form.submit "Add_varient"%>
+  </p>
+ 
+<% end %>
